@@ -551,7 +551,7 @@ $\Xi = (S\times\{0, 1\})^n.$
 \section{Динамические таблицы}
 Использовался алгоритм, описанный в \ref{dt-verify}.
 Так как начало транзакции в исследуемой системе скорее логическое(клиент получает timestamp, и в дальнейшем
-все чтения осуществляет по нему, то $start$ операции, завершившиеся по таймауту можно считать завершившимися
+все чтения осуществляет по нему), то $start$ операции, завершившиеся по таймауту можно считать завершившимися
 с \textbf{fail} статусом.
 Было исследовано поведение системы при следующих условиях.
 \begin{itemize}
@@ -586,6 +586,87 @@ $\Xi = (S\times\{0, 1\})^n.$
 \begin{figure}[h]
     \includegraphics[scale=0.6]{dyntables-1/latency-quantiles.png}
     \caption{Квантили времён отклика, тест 1}
+\end{figure}
+
+Тест 2 -- успешно верфицировано соблюдение гарантий. С перерывами по 3 секунды
+обрывается связь с узлом обслуживающим один шард на 8 секунд. Каждая транзакция состоит
+из двух чтений и двух записей. Запросы делаются с промежутками в 0.2 секунды в 5 потоков.
+Время сбора истории -- 80 секунд, время верификации 3 минуты.
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-2/rate.png}
+    \caption{Частота запросов, тест 2}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-2/latency-raw.png}
+    \caption{Время отклика, тест 2}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-2/latency-quantiles.png}
+    \caption{Квантили времён отклика, тест 2}
+\end{figure}
+
+Тест 3 -- успешно верфицировано соблюдение гарантий. С перерывами по 8 секунд
+обрывается кластер делится на две примерно равные части, timestamp-provider доступен всем. Каждая транзакция состоит
+из двух чтений и двух записей. Запросы делаются с промежутками в 0.2 секунды в 5 потоков.
+Время сбора истории -- 80 секунд, время верификации 2.5 минуты.
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-3/rate.png}
+    \caption{Частота запросов, тест 3}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-3/latency-raw.png}
+    \caption{Время отклика, тест 3}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-3/latency-quantiles.png}
+    \caption{Квантили времён отклика, тест 3}
+\end{figure}
+
+Тест 4 -- успешно верфицировано соблюдение гарантий. С перерывами по 3 секунды
+обрывается кластер делится на две примерно равные части, timestamp-provider доступен всем. Каждая транзакция состоит
+из двух чтений и двух записей. Запросы делаются с промежутками в 0.2 секунды в 5 потоков.
+Время сбора истории -- 80 секунд, время верификации 2.5 минуты.
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-4/rate.png}
+    \caption{Частота запросов, тест 4}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-4/latency-raw.png}
+    \caption{Время отклика, тест 4}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-4/latency-quantiles.png}
+    \caption{Квантили времён отклика, тест 4}
+\end{figure}
+
+Тест 5 -- Получена история не соблюдающая гарантии. С перерывами по 4 секунды
+обрывается связь с двумя узлами обслуживающим какие-то шарды на 2 секунды. Каждая транзакция состоит
+из двух чтений и двух записей. Запросы делаются с промежутками в 0.2 секунды в 5 потоков.
+Время сбора истории -- 80 секунд, время верификации 1 минута, что неудивительно, так как в собранной
+истории всего одна успешная операция.
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-5/rate.png}
+    \caption{Частота запросов, тест 5}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-5/latency-raw.png}
+    \caption{Время отклика, тест 5}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.6]{dyntables-5/latency-quantiles.png}
+    \caption{Квантили времён отклика, тест 5}
 \end{figure}
 
 \printbibliography[title=Список литературы]
