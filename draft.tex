@@ -1,5 +1,5 @@
 \documentclass[pdftex,ptm,14pt,a4paper]{extreport}
-
+\usepackage{float}
 \usepackage[utf8]{inputenc}
 
 \usepackage[russian,english]{babel}
@@ -559,6 +559,47 @@ $\Xi = (S\times\{0, 1\})^n.$
 После ряда экспериментов, были обнаружены аномалии вида "чтение неподтверждённых записей".
 После анализа исходного кода, было обнаружено, что запросы записи нельзя однозначно считать отклонёнными системой.
 В скорректированной постановке, ошибок линеаризации на данный момент обнаружено не было.
+
+Все эксперименты проводились с rpc\_timeout=3000 на всех узлах.
+
+Тест 1 -- успешно верфицировано соблюдение гарантий. Каждые две секунды теряется связь с текущим лидером.
+Запросы делаются с промежутками в 0.3 секунды в 5 потоков.
+Время сбора истории -- 40 секунд, время верификации 1 минута.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.6]{cypress-2/rate.png}
+    \caption{Частота запросов, тест 1}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.6]{cypress-2/latency-raw.png}
+    \caption{Время отклика, тест 1}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.6]{cypress-2/latency-quantiles.png}
+    \caption{Квантили времён отклика, тест 1}
+\end{figure}
+
+Тест 2 -- успешно верфицировано соблюдение гарантий. Каждые 6
+секунд кластер делится на две примерно равные части.
+Запросы делаются с промежутками в 0.3 секунды в 5 потоков.
+Время сбора истории -- 40 секунд, время верификации 1 минута.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.6]{cypress-5/rate.png}
+    \caption{Частота запросов, тест 2}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.6]{cypress-5/latency-raw.png}
+    \caption{Время отклика, тест 2}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.6]{cypress-5/latency-quantiles.png}
+    \caption{Квантили времён отклика, тест 2}
+\end{figure}
 
 \section{Динамические таблицы}
 Использовался алгоритм, описанный в \ref{dt-verify}.
