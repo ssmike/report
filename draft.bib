@@ -1,5 +1,5 @@
 @article{molly,
-    author={Alvaro Peter, Joshua Rosen, Joseph M. Hellerstein},
+    author={Alvaro, Peter and Rosen, Joshua and Joseph, M. Hellerstein},
     title={Lineage-driven fault injection},
     year={2015},
     journal={ACM},
@@ -9,20 +9,21 @@
 @misc{coq,
     author={Barras, Bruno},
     title={The Coq proof assistant reference manual: Version 6.1.},
-    publsher={Inria},
+    publisher={Inria},
     year={1997}
 }
 
 @article{network-reliable,
-    author={Bailis, Peter, and Kyle Kingsbury},
+    author={Bailis, Peter and Kingsbury, Kyle},
     title={The network is reliable},
     year={2014}
 }
 
 @article{amazon-formal-proofs,
-    author={Chris Newcombe, Tim Rath, Fan Zhang, Bogdan Munteanu, Marc Brooker, Michael Deardeuff},
-    title={Use of Formal Methods at Amazon Web Services},
+    title={Use of formal methods at Amazon Web Services},
+    author={Newcombe, Chris and Rath, Tim and Zhang, Fan and Munteanu, Bogdan and Brooker, Marc and Deardeuff, Michael},
     year={2014},
+    publisher={Technical report}
 }
 
 @article{models-bounds,
@@ -32,14 +33,25 @@
     year={2002}
 }
 
+@article{snapshot-serializable,
+    title={Serializable isolation for snapshot databases},
+    author={Cahill, Michael J and R{\"o}hm, Uwe and Fekete, Alan D},
+    journal={ACM Transactions on Database Systems (TODS)},
+    volume={34},
+    number={4},
+    pages={20},
+    year={2009},
+    publisher={ACM}
+}
+
 @article{linearizable,
     title={Linearizability: a correctness condition for concurrent objects},
     year={1990},
-    author={M. Herlihy и J. Wing},
+    author={M. Herlihy, J. Wing},
     pages={463—492},
     issue={3},
     journal={ACM Transactions on Programming Languages and Systems (TOPLAS)},
-    year={1990},
+    year={1990}
 }
 
 @online{netflix-simian-army,
@@ -59,7 +71,42 @@
     url={http://jepsen.io/analyses}
 }
 
+@book{tanenbaum2007distributed,
+  title={Distributed systems: principles and paradigms},
+  author={Tanenbaum, Andrew S and Van Steen, Maarten},
+  year={2007},
+  publisher={Prentice-Hall}
+}
 
+@article{lowe-testing,
+  title={Testing for linearizability},
+  author={Lowe, Gavin},
+  journal={Concurrency and Computation: Practice and Experience},
+  volume={29},
+  number={4},
+  year={2017},
+  publisher={Wiley Online Library}
+}
+
+@inproceedings{horn-faster,
+  title={Faster linearizability checking via p-compositionality},
+  author={Horn, Alex and Kroening, Daniel},
+  booktitle={International Conference on Formal Techniques for Distributed Objects, Components, and Systems},
+  pages={50--65},
+  year={2015},
+  organization={Springer}
+}
+
+@article{wing-testing,
+  title={Testing and verifying concurrent objects},
+  author={Wing, Jeannette M. and Gong, Chun},
+  journal={Journal of Parallel and Distributed Computing},
+  volume={17},
+  number={1-2},
+  pages={164--182},
+  year={1993},
+  publisher={Elsevier}
+}
 
 @online{knossos,
     title={Computational techniques in Knossos},
@@ -73,7 +120,37 @@
     title={Apache Zookeeper}
 }
 
-@online{raft,
-    url={https://raft.github.io/},
-    title={The Raft Consensus Algorithm}
+@inproceedings{raft,
+  title={In search of an understandable consensus algorithm.},
+  author={Ongaro, Diego and Ousterhout, John K},
+  booktitle={USENIX Annual Technical Conference},
+  pages={305--319},
+  year={2014}
+}
+
+@article{state-replication,
+  title={State Machine Replication},
+  author={Santos, Nuno Filipe de Sousa},
+  year={2012},
+  publisher={EPFL}
+}
+
+@article{spanner,
+  title={Spanner: Google’s globally distributed database},
+  author={Corbett, James C and Dean, Jeffrey and Epstein, Michael and Fikes, Andrew and Frost, Christopher and Furman, Jeffrey John and Ghemawat, Sanjay and Gubarev, Andrey and Heiser, Christopher and Hochschild, Peter and others},
+  journal={ACM Transactions on Computer Systems (TOCS)},
+  volume={31},
+  number={3},
+  pages={8},
+  year={2013},
+  publisher={ACM}
+}
+
+@book{postgres,
+  title={The design of Postgres},
+  author={Stonebraker, Michael and Rowe, Lawrence A},
+  volume={15},
+  number={2},
+  year={1986},
+  publisher={ACM}
 }
